@@ -14,7 +14,7 @@
 
 ## 설명
 
-- [JS-Swagger-Handler](https://github.com/JuTiger-Lee/JS-SwaggerHandler)
+- JS 버전 Swagger-Hanlder: [JS-Swagger-Handler](https://github.com/JuTiger-Lee/JS-SwaggerHandler)
 
 ### API 주소
 
