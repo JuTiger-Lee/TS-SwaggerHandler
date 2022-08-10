@@ -2,6 +2,7 @@ import express from "express";
 import routers from "@/routers/index";
 import env from "env-var";
 import dotenv from "dotenv";
+import ApiDocs from "@/controllers/apiDocs/ApiDocs";
 
 class App {
   public readonly server: express.Application;
@@ -15,6 +16,7 @@ class App {
   bootstrap() {
     this.checkEnv();
     this.initExpress();
+    this.initSwagger();
     this.setRouter();
   }
 
@@ -25,6 +27,20 @@ class App {
   private initExpress() {
     this.server.use(express.urlencoded({ extended: true }));
     this.server.use(express.json());
+  }
+
+  private initSwagger() {
+    const apiDocs = new ApiDocs();
+    apiDocs.init();
+    const { swaggerUI, specs, setUpOption } = apiDocs.getSwaggerOption();
+
+    if (env.get("NODE_ENV").asString() !== "production") {
+      this.server.use(
+        "/api-docs",
+        swaggerUI.serve,
+        swaggerUI.setup(specs, setUpOption)
+      );
+    }
   }
 
   private setRouter() {
