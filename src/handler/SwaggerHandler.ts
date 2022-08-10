@@ -3,9 +3,11 @@ import { OAS3Options, Paths, PathItem } from "swagger-jsdoc";
 const swaggerOpenApiVersion = "3.0.0";
 
 const swaggerInfo = {
-  title: "",
+  title: "TS-Swagger-Hanlder",
   version: "0.0.1",
-  description: "" 
+  description:
+    "<h3>Repository</h3>" +
+    'TS-Swagger-Hanlder: <a href="https://github.com/JuTiger-Lee/TS-SwaggerHandler.git">https://github.com/JuTiger-Lee/TS-SwaggerHandler.git</a> <br/>',
 };
 
 const swaggerTags = [
